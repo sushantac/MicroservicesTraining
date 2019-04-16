@@ -1,0 +1,9 @@
+version: "2"
+
+services:
+    postgres:
+        image: postgres:11.2
+        ports:
+         - "5433:5432"
+        volumes:
+         - "C:/Personal/Trainings/Docker/postgres/data:/var/lib/postgresql/data"

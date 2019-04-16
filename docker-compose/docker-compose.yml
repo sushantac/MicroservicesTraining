@@ -1,0 +1,23 @@
+version: "2"
+
+services:
+    postgres:
+        image: postgres:11.2
+        ports:
+         - "5433:5432"
+        volumes:
+         - "C:/Personal/Trainings/Docker/postgres/data:/var/lib/postgresql/data"
+    planning:
+        image: planningapp:1.1
+        build:
+             context: "C:/Personal/STSWorkspace/Planning"
+             dockerfile: Dockerfile
+        ports:
+         - "8081:8081"
+    training:
+        image: trainingapp:1.1
+        build:
+             context: "C:/Personal/STSWorkspace/Training"
+             dockerfile: Dockerfile
+        ports:
+         - "8082:8082"
