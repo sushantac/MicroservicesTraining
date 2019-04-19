@@ -1,11 +1,24 @@
-http://localhost:8888/planning-service/default
-
-http://localhost:8888/planning-service/test
-
-http://localhost:8888/planning-service/production
 
 
+
+
+======================
+ Spring config-server
+======================
+
+-
+See the config-server properties for different environments:
+
+	http://localhost:8888/planning-service/default
+	
+	http://localhost:8888/planning-service/test
+	
+	http://localhost:8888/planning-service/production
+
+
+-
 Static way- Retrieve the property (application.environment) value from config-server
+
 http://localhost:8021/env
 
 	@Component
@@ -24,12 +37,10 @@ http://localhost:8021/env
         return configuration.environment;
     }
     
-
+-
 IF property is changed in config-server, refresh the config server properties- Hit POST on 
 http://localhost:8021/actuator/refresh
 
-
-   
 Dynamic way- THEN retrieve the property (application.environment) value from config-server
 http://localhost:8021/environment
 
