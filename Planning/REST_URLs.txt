@@ -1,9 +1,12 @@
-<a href="http://localhost:8888/planning-service/default">http://localhost:8888/planning-service/default</a>
-<a href="http://localhost:8888/planning-service/test">http://localhost:8888/planning-service/test</a>
-<a href="http://localhost:8888/planning-service/production">http://localhost:8888/planning-service/production</a>
+http://localhost:8888/planning-service/default
+
+http://localhost:8888/planning-service/test
+
+http://localhost:8888/planning-service/production
+
 
 Static way- Retrieve the property (application.environment) value from config-server
-<a href="http://localhost:8021/environment">http://localhost:8021/env</a>
+http://localhost:8021/env
 
 	@Component
 	public class Configuration {
@@ -21,13 +24,15 @@ Static way- Retrieve the property (application.environment) value from config-se
         return configuration.environment;
     }
     
-    
+
 IF property is changed in config-server, refresh the config server properties- Hit POST on 
-<a href="http://localhost:8021/actuator/refresh">http://localhost:8021/actuator/refresh</a>
+http://localhost:8021/actuator/refresh
+
 
    
 Dynamic way- THEN retrieve the property (application.environment) value from config-server
-<a href="http://localhost:8021/environment">http://localhost:8021/environment</a>
+http://localhost:8021/environment
+
 	
 	@RequestMapping(path = "/environment", method = RequestMethod.GET)
     public String getEnvironment(@Value("${application.environment}") String environment) {
