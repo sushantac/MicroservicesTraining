@@ -5,7 +5,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Configuration {
-	
 	@Value("${application.environment}")
 	public String environment;
 }
