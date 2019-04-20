@@ -2,9 +2,9 @@
 
 
 
-======================
- Spring config-server
-======================
+================================================
+			Spring Config Server
+================================================
 
 -
 See the config-server properties for different environments:
@@ -41,6 +41,10 @@ http://localhost:8021/env
 IF property is changed in config-server, refresh the config server properties- Hit POST on 
 http://localhost:8021/actuator/refresh
 
+Need following endpoint to be exposed from actuator: 
+management.endpoints.web.exposure.include=Refresh
+
+
 Dynamic way- THEN retrieve the property (application.environment) value from config-server
 http://localhost:8021/environment
 
@@ -50,5 +54,18 @@ http://localhost:8021/environment
         return environment;
     }
 
+================================================
+				Spring Actuator
+================================================
 
+IF property is changed in config-server, refresh the config server properties- Hit POST on 
+http://localhost:8021/actuator/refresh
+
+Need following endpoint to be exposed from actuator: 
+management.endpoints.web.exposure.include=Refresh
+
+
+================================================
+				Spring Actuator
+================================================
 
