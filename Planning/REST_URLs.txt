@@ -66,6 +66,13 @@ management.endpoints.web.exposure.include=Refresh
 
 
 ================================================
-				Spring Actuator
+				Spring Swagger
 ================================================
 
+Refer SwaggerConfig.java to see starting point with @EnableSwagger2
+
+Raw - 
+	http://localhost:8021/v2/api-docs
+
+With Swagger UI - 
+	http://localhost:8021/swagger-ui.html
