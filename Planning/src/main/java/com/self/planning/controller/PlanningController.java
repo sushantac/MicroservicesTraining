@@ -24,8 +24,8 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
-@Api(value = "/planning", produces = "application/json")
-@RequestMapping("/planning")
+@Api(value = "/", produces = "application/json")
+@RequestMapping
 @RestController
 public class PlanningController {
 
@@ -35,9 +35,14 @@ public class PlanningController {
 	@Autowired
 	Configuration configuration;
 
-	@RequestMapping(path = "/", method = RequestMethod.GET)
+	@RequestMapping(path= "/")
 	public String getApplicationName() {
 		return "This is coming from planning application!";
+	}
+	
+	@RequestMapping(path = "/plan", method = RequestMethod.GET)
+	public Plan getPlan() {
+		return getPlan(1);
 	}
 
 	@RequestMapping(path = "/environment", method = RequestMethod.GET)
@@ -77,13 +82,13 @@ public class PlanningController {
 		return p;
 	}
 
-	@RequestMapping(path = "/courses", method = RequestMethod.GET)
+	@RequestMapping(path = "plan/course", method = RequestMethod.GET)
 	public String getTrainingCourses() {
-		HttpHeaders headers = new HttpHeaders();
-		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-		HttpEntity<String> entity = new HttpEntity<String>(headers);
+		//HttpHeaders headers = new HttpHeaders();
+		//headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+		//HttpEntity<String> entity = new HttpEntity<String>(headers);
 
-		String ret = restTemplate.exchange("http://training-service/courses", HttpMethod.GET, entity, String.class).getBody();
+		String ret = restTemplate.exchange("http://training-service/course", HttpMethod.GET, null, String.class).getBody();
 		
 		System.out.println("\n\n return : " + ret);
 		return ret;
