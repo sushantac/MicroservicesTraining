@@ -19,7 +19,7 @@ See the config-server properties for different environments:
 -
 Static way- Retrieve the property (application.environment) value from config-server
 
-http://localhost:8021/env
+http://localhost:8080/env
 
 	@Component
 	public class Configuration {
@@ -39,14 +39,14 @@ http://localhost:8021/env
     
 -
 IF property is changed in config-server, refresh the config server properties- Hit POST on 
-http://localhost:8021/actuator/refresh
+POST http://localhost:8080/actuator/refresh
 
 Need following endpoint to be exposed from actuator: 
 management.endpoints.web.exposure.include=Refresh
 
 
 Dynamic way- THEN retrieve the property (application.environment) value from config-server
-http://localhost:8021/environment
+http://localhost:8080/environment
 
 	
 	@RequestMapping(path = "/environment", method = RequestMethod.GET)
@@ -59,7 +59,7 @@ http://localhost:8021/environment
 ================================================
 
 IF property is changed in config-server, refresh the config server properties- Hit POST on 
-http://localhost:8021/actuator/refresh
+http://localhost:8080/actuator/refresh
 
 Need following endpoint to be exposed from actuator: 
 management.endpoints.web.exposure.include=Refresh
@@ -72,7 +72,7 @@ management.endpoints.web.exposure.include=Refresh
 Refer SwaggerConfig.java to see starting point with @EnableSwagger2
 
 Raw - 
-	http://localhost:8021/v2/api-docs
+	http://localhost:8080/v2/api-docs
 
 With Swagger UI - 
-	http://localhost:8021/swagger-ui.html
+	http://localhost:8080/swagger-ui.html
